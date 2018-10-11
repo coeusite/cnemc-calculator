@@ -13,6 +13,14 @@ data[column_names] = data[column_names].convert_objects(convert_numeric=True)
 data['CO(mg/m3)']=cnemc_calculator.functions.sci_round(data['CO(mg/m3)'])
 data_aqi = cnemc_calculator.calculate_daily_aqi(data, column_names)
 data_aqi.to_excel('data/aqi.xlsx')
-# pd.read_excel('data/iAQI限值.xlsx', index_col=0)
+
+index = data_aqi <= 0
+index = index.sum(axis=1)>0
+data_aqi[index,'AQI']
+data_aqi.loc[index]
+
+
+# df = pd.read_excel('data/iAQI限值H.xlsx', index_col=0)
+# print("df = pd.DataFrame( {} )".format(str(df.to_dict())))
 
 comp = pd.concat((data['AQI'], data_aqi['AQI']),axis=1)

@@ -1,1 +1,1 @@
-from .calculate_aqi import calculate_daily_aqi
+from .calculate_aqi import calculate_daily_aqi, calculate_hourly_aqi, calculate_aqi
