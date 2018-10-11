@@ -1,1 +1,1 @@
-from .HJ633-2012 import calculate_daily_aqi
+from .calculate_aqi import calculate_daily_aqi
